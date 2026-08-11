@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char ciphertext[500];
+    char plaintext[500];
+
+    int a = 3;
+    int b = 15;
+    int a_inv = 9;
+
+    printf("Enter the ciphertext: ");
+    fgets(ciphertext, sizeof(ciphertext), stdin);
+
+    for (int i = 0; ciphertext[i] != '\0'; i++)
+    {
+        if (isupper(ciphertext[i]))
+        {
+            int c = ciphertext[i] - 'A';
+
+            // Affine decryption
+            int p = (a_inv * (c - b)) % 26;
+
+            if (p < 0)
+                p += 26;
+
+            plaintext[i] = p + 'A';
+        }
+        else if (islower(ciphertext[i]))
+        {
+            int c = ciphertext[i] - 'a';
+
+            int p = (a_inv * (c - b)) % 26;
+
+            if (p < 0)
+                p += 26;
+
+            plaintext[i] = p + 'a';
+        }
+        else
+        {
+            plaintext[i] = ciphertext[i];
+        }
+    }
+
+    plaintext[strlen(ciphertext)] = '\0';
+
+    printf("\nDecrypted plaintext: %s", plaintext);
+
+    return 0;
+}
+
+
+output
+Enter the ciphertext: UXQMD 
+
+Decrypted plaintext: TUJZW 
