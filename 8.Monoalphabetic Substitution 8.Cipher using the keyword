@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char plain[100], cipher[100];
+    
+    // Cipher sequence generated using keyword CIPHER
+    char key[] = "CIPHERABDFGJKLMNOQSTUVWXYZ";
+
+    int i, index;
+
+    printf("Enter plaintext: ");
+    fgets(plain, sizeof(plain), stdin);
+
+    printf("Ciphertext: ");
+
+    for (i = 0; plain[i] != '\0'; i++)
+    {
+        if (isalpha(plain[i]))
+        {
+            // Convert lowercase letter to position 0-25
+            index = tolower(plain[i]) - 'a';
+
+            // Preserve uppercase/lowercase
+            if (islower(plain[i]))
+                printf("%c", tolower(key[index]));
+            else
+                printf("%c", key[index]);
+        }
+        else
+        {
+            // Keep spaces and special characters unchanged
+            printf("%c", plain[i]);
+        }
+    }
+
+    return 0;
+}
+
+output
+
+Enter plaintext: HELLO WORLD
+Ciphertext: BEJJM WMQJH
+
+
+
+
+            
