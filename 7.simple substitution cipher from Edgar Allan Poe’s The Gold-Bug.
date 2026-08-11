@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <wchar.h>
+#include <locale.h>
+
+int main()
+{
+    setlocale(LC_ALL, "");
+
+    wchar_t cipher[] =
+        L"53‡‡†305))6*;4826)4‡.)4‡);806*;48†8¶60))85;;]8*;:‡*8†83*"
+        L"*(88)5*†;46(;88*96*?;8)*‡(;485);5*†2:*‡(;4956*2(5*—4)8¶8*"
+        L";4069285);)6†8)4‡‡;1(‡9;48081;8:8‡1;48†85;4)485†528806*81"
+        L"(‡9;48;(88;4(‡?34;48)4‡;161;:188;‡?;";
+
+    int i;
+
+    for (i = 0; cipher[i] != L'\0'; i++)
+    {
+        switch (cipher[i])
+        {
+            case L'5': wprintf(L"A"); break;
+            case L'3': wprintf(L"B"); break;
+            case L'‡': wprintf(L"O"); break;
+            case L'†': wprintf(L"D"); break;
+            case L'8': wprintf(L"E"); break;
+            case L'0': wprintf(L"L"); break;
+            case L'6': wprintf(L"I"); break;
+            case L'4': wprintf(L"H"); break;
+            case L')': wprintf(L"S"); break;
+            case L';': wprintf(L"T"); break;
+            case L'*': wprintf(L"N"); break;
+            case L'(': wprintf(L"R"); break;
+            case L'2': wprintf(L"G"); break;
+            case L'1': wprintf(L"F"); break;
+            case L'9': wprintf(L"M"); break;
+            case L'?': wprintf(L"Y"); break;
+            case L'¶': wprintf(L"V"); break;
+            case L'.': wprintf(L"P"); break;
+            case L']': wprintf(L"C"); break;
+            case L':': wprintf(L"Y"); break;
+            case L'—': wprintf(L" "); break;
+
+            default:
+                wprintf(L"%lc", cipher[i]);
+        }
+    }
+
+    return 0;
+}
+
+
+output
+ABOODBLASSINTHEGISHOPSHOSTELINTHEDEVILSSEATTCENTYONEDEBNNREESANDTHIRTEENMINYTESNORTHEASTANDGYNORTHMAINGRAN HSEVENTHLIMGEASTSIDESHOOTFROMTHELEFTEYEOFTHEDEATHSHEADAGEELINEFROMTHETREETHROYBHTHESHOTFIFTYFEETOYT
