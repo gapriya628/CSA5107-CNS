@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int i;
+    long double keys = 1;
+    long double power;
+
+    /* Calculate 25! */
+    for(i = 1; i <= 25; i++)
+    {
+        keys = keys * i;
+    }
+
+    /* Calculate log2(25!) */
+    power = log2l(keys);
+
+    printf("Number of possible Playfair keys = 25!\n");
+    printf("25! = %.0Lf\n", keys);
+
+    printf("Approximate power of 2 = 2^%.2Lf\n", power);
+
+    printf("\nTherefore, possible keys are approximately 2^84.\n");
+
+    printf("\nEffectively unique Playfair keys are approximately 2^76.\n");
+
+    return 0;
+}
+
+output
+Number of possible Playfair keys = 25!
+25! = 15511210043330985984000000
+Approximate power of 2 = 2^83.68
+
+Therefore, possible keys are approximately 2^84.
+
+Effectively unique Playfair keys are approximately 2^76.
